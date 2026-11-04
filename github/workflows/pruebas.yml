@@ -1,0 +1,21 @@
+name: Mi primera automatizacion
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar programa
+        run: python hola.py
